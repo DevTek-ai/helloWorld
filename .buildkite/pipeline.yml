@@ -1,0 +1,12 @@
+steps:
+
+  - command:
+    - auto/build.sh
+   
+    label: ":package: & :rocket: Build & Deploy Dev: VERSION -> ${BUILDKITE_BUILD_NUMBER}"
+    branches: dev devops* main master
+    agents:
+      queue: "wo:nonprod"
+    env:
+      BUILD_VERSION: "${BUILDKITE_BUILD_NUMBER}"
+      ENV: "dev"
